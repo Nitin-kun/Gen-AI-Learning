@@ -1,10 +1,14 @@
 import os
-from google.colab import userdata
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-os.environ["GOOGLE_API_KEY"] = userdata.get("GOOGLE_API_KEY")
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+
 model = ChatGoogleGenerativeAI(model = "gemini-2.0-flash")
 
 
