@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1zC-L7IpWMPPX7NTYsM7wGTwGnl9INtSY
 """
 
-!pip install langchain_google_genai langchain  --upgrade
+# !pip install langchain_google_genai langchain  --upgrade
 
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import os

@@ -1,14 +1,16 @@
-
-from google.colab import userdata
+from dotenv import load_dotenv
 from langchain_google_genai import GoogleGenerativeAI
 import os
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnableParallel
 from langchain_core.output_parsers import StrOutputParser
 
+
+load_dotenv()
+
 parser = StrOutputParser()
 
-os.environ["GOOGLE_API_KEY"] = userdata.get("GOOGLE_API_KEY")
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
 model = GoogleGenerativeAI(model="gemini-2.5-flash")
 
@@ -24,7 +26,9 @@ result = runner.invoke({"topic":"electric car"})
 
 for mood, response in result.items():
   print(f"{mood}: \n{response}")
-    
+
+graph = runner.get_graph()
+graph.print_ascii() 
     
 
 
